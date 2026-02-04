@@ -1,6 +1,121 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --charcoal-assertive: #ff2b00;
+  --charcoal-assertive-hover: #f52900;
+  --charcoal-assertive-press: #d62400;
+  --charcoal-background1: #ffffff;
+  --charcoal-background1-hover: #f5f5f5;
+  --charcoal-background1-press: #d6d6d6;
+  --charcoal-background2: #f5f5f5;
+  --charcoal-background2-hover: #ebebeb;
+  --charcoal-background2-press: #cecece;
+  --charcoal-border: rgba(0, 0, 0, 0.08);
+  --charcoal-border-hover: rgba(0, 0, 0, 0.1168);
+  --charcoal-border-press: rgba(0, 0, 0, 0.2272);
+  --charcoal-brand: #0096fa;
+  --charcoal-brand-hover: #0090f0;
+  --charcoal-brand-press: #007ed2;
+  --charcoal-icon6: rgba(255, 255, 255, 0.28);
+  --charcoal-icon6-hover: rgba(222, 222, 222, 0.3088);
+  --charcoal-icon6-press: rgba(152, 152, 152, 0.3952);
+  --charcoal-link1: #3d7699;
+  --charcoal-link1-hover: #3b7193;
+  --charcoal-link1-press: #336381;
+  --charcoal-link2: rgba(255, 255, 255, 0.36);
+  --charcoal-link2-hover: rgba(229, 229, 229, 0.3856);
+  --charcoal-link2-press: rgba(167, 167, 167, 0.4624);
+  --charcoal-success: #b1cc29;
+  --charcoal-success-hover: #aac427;
+  --charcoal-success-press: #95ab22;
+  --charcoal-surface1: #ffffff;
+  --charcoal-surface1-hover: #f5f5f5;
+  --charcoal-surface1-press: #d6d6d6;
+  --charcoal-surface10: rgba(0, 0, 0, 0.16);
+  --charcoal-surface10-hover: rgba(0, 0, 0, 0.1936);
+  --charcoal-surface10-press: rgba(0, 0, 0, 0.2944);
+  --charcoal-surface2: rgba(0, 0, 0, 0.02);
+  --charcoal-surface2-hover: rgba(0, 0, 0, 0.0592);
+  --charcoal-surface2-press: rgba(0, 0, 0, 0.17679999999999998);
+  --charcoal-surface3: rgba(0, 0, 0, 0.04);
+  --charcoal-surface3-hover: rgba(0, 0, 0, 0.0784);
+  --charcoal-surface3-press: rgba(0, 0, 0, 0.1936);
+  --charcoal-surface4: rgba(0, 0, 0, 0.32);
+  --charcoal-surface4-hover: rgba(0, 0, 0, 0.3472);
+  --charcoal-surface4-press: rgba(0, 0, 0, 0.4288);
+  --charcoal-surface6: rgba(0, 0, 0, 0.88);
+  --charcoal-surface6-hover: rgba(0, 0, 0, 0.8848);
+  --charcoal-surface6-press: rgba(0, 0, 0, 0.8992);
+  --charcoal-surface7: rgba(0, 0, 0, 0.02);
+  --charcoal-surface7-hover: rgba(0, 0, 0, 0.0592);
+  --charcoal-surface7-press: rgba(0, 0, 0, 0.17679999999999998);
+  --charcoal-surface8: rgba(0, 0, 0, 0.88);
+  --charcoal-surface8-hover: rgba(0, 0, 0, 0.8848);
+  --charcoal-surface8-press: rgba(0, 0, 0, 0.8992);
+  --charcoal-surface9: #ffffff;
+  --charcoal-surface9-hover: #f5f5f5;
+  --charcoal-surface9-press: #d6d6d6;
+  --charcoal-text1: #1f1f1f;
+  --charcoal-text1-hover: #1e1e1e;
+  --charcoal-text1-press: #1a1a1a;
+  --charcoal-text2: #474747;
+  --charcoal-text2-hover: #444;
+  --charcoal-text2-press: #3c3c3c;
+  --charcoal-text3: #858585;
+  --charcoal-text3-hover: #808080;
+  --charcoal-text3-press: #707070;
+  --charcoal-text4: #adadad;
+  --charcoal-text4-hover: #a6a6a6;
+  --charcoal-text4-press: #919191;
+  --charcoal-text5: #ffffff;
+  --charcoal-text5-hover: #f5f5f5;
+  --charcoal-text5-press: #d6d6d6;
+  --charcoal-transparent: rgba(0, 0, 0, 0);
+  --charcoal-transparent-hover: rgba(0, 0, 0, 0.04);
+  --charcoal-transparent-press: rgba(0, 0, 0, 0.16);
+  --charcoal-updatedItem: rgba(0, 150, 250, 0.04);
+  --charcoal-updatedItem-hover: rgba(0, 73, 122, 0.0784);
+  --charcoal-updatedItem-press: rgba(0, 26, 43, 0.1936);
+  --charcoal-warning: #ffaf0f;
+  --charcoal-warning-hover: #f5a80e;
+  --charcoal-warning-press: #d6930d;
+  --charcoal-premium: #fd9e16;
+  --charcoal-premium-hover: #f39815;
+  --charcoal-premium-press: #d58512;
+  --charcoal-booth: #fc4d50;
+  --charcoal-booth-hover: #f24a4d;
+  --charcoal-booth-press: #d44143;
+  --charcoal-request: #30d288;
+  --charcoal-request-hover: #2eca83;
+  --charcoal-request-press: #28b072;
+  --charcoal-r18: #ff4060;
+  --charcoal-r18-hover: #f53d5c;
+  --charcoal-r18-press: #d63651;
+  --charcoal-like: #ff4060;
+  --charcoal-like-hover: #f53d5c;
+  --charcoal-like-press: #d63651;
+  --charcoal-marker: #cc2954;
+  --charcoal-marker-hover: #c42751;
+  --charcoal-marker-press: #ab2247;
+  --charcoal-gold: #d6ba49;
+  --charcoal-gold-hover: #cdb346;
+  --charcoal-gold-press: #b49c3d;
+  --charcoal-silver: #d6d6d6;
+  --charcoal-silver-hover: #cdcdcd;
+  --charcoal-silver-press: #b4b4b4;
+  --charcoal-bronze: #c8a17e;
+  --charcoal-bronze-hover: #c09b79;
+  --charcoal-bronze-press: #a8876a;
+  --charcoal-text1Visited: #adadad;
+  --charcoal-text1Visited-hover: #a6a6a6;
+  --charcoal-text1Visited-press: #919191;
+  --charcoal-service-x: #000;
+  --charcoal-service-x-hover: #000;
+  --charcoal-service-x-press: #000;
+  --charcoal-serviceXColor: #000;
+  --charcoal-serviceXColor-hover: #000;
+  --charcoal-serviceXColor-press: #000;
+  --charcoal-border-default: rgba(0, 0, 0, 0.08);
+  --charcoal-border-default-hover: rgba(0, 0, 0, 0.1168);
+  --charcoal-border-default-press: rgba(0, 0, 0, 0.2272);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -10,18 +125,8 @@
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html, body {
+  font-family: win-bug-omega, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
 
 * {
@@ -33,10 +138,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
