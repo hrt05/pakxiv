@@ -86,3 +86,6 @@ const options: NextAuthOptions = {
     secret: process.env.NEXTAUTH_SECRET,
 }
 export default options
+
+// 参考にさせていただいた。
+// https://qiita.com/curry__30/items/0ce5b75cd51fe55dfadd
