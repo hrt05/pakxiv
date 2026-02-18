@@ -9,6 +9,7 @@ const options: NextAuthOptions = {
         // credentialsというプロバイダー
         Credentials({
 
+            // サインインフォームに表示される名前
             // 多分好きな名称でいいはず。。。。
             id: 'credentials',
             name: 'Credentials',
