@@ -5,9 +5,10 @@ import { NextResponse } from "next/server";
 export const POST = async (req: Request, res : NextResponse) => {
     try{
 
+        // 2026/02/21 next側のPOST以外の時は405を返すという設定になっているから以下のはいらなかった。 export const defaultなどだったら必要
         // もしメソッドがPOSTじゃなかったら405を返します
-        if (req.method !== 'POST')
-            return NextResponse.json({ message: 'Bad Request' }, { status: 405 })
+        // if (req.method !== 'POST')
+        //     return NextResponse.json({ message: 'Bad Request' }, { status: 405 })
 
         // reqの中身を取り出します。
         const { name, email, password } = await req.json()
