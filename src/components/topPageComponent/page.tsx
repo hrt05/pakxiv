@@ -1,9 +1,15 @@
 "use client"
 
 import { Button } from "@charcoal-ui/react"
+import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 
 const TopPageComponent = () => {
+
+    const { data: session } = useSession()
+    console.log("クライアントセッション",session)
+
+    const user = session?.user
 
     const router = useRouter()
 
@@ -12,10 +18,15 @@ const TopPageComponent = () => {
         router.push("/login")
     }
 
+    console.log("user確認",user)
+
     return(
         <div>
             <p>テスト</p>
             <Button variant="Primary" onClick={handleSubmitLogin}>ログイン</Button>
+            {user? 
+            <div><h3>セッションテスト</h3><br /><p>{user.id}</p>
+            </div> : null}
         </div>
     )
 }

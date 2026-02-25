@@ -11,7 +11,7 @@ export const POST = async (req: Request, res : NextResponse) => {
         //     return NextResponse.json({ message: 'Bad Request' }, { status: 405 })
 
         // reqの中身を取り出します。
-        const { name, email, password } = await req.json()
+        const { email, password, name } = await req.json()
 
         // 受け取ったemailがuserテーブルに含まれていたらexistingUserに入れます。
         const existingUser = await prisma.user.findUnique({ where: {email} })
@@ -27,8 +27,8 @@ export const POST = async (req: Request, res : NextResponse) => {
         const user = await prisma.user.create({
             data: {
                 email,
-                name,
                 hashedpassword,
+                name,
                 image: '',
                 emailVerified: new Date(),
             }

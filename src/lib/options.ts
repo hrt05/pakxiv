@@ -107,7 +107,7 @@ const options: NextAuthOptions = {
     },
 
     pages: {
-        signIn: '/auth'
+        signIn: '/'
     },
 
     // ここら辺のコメントは予想で書いてます
