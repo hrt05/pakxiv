@@ -65,3 +65,17 @@ model VerificationToken {
   @@unique([identifier, token])
   @@map("verification_tokens")
 }
+
+model post {
+  id          String @id @default(cuid())
+  title       String
+  description String
+  image @map("postImage")
+  postImage PostImage @relation()
+
+}
+
+model PostImage {
+  id   String @id @default(cuid())
+  path Path[]
+}
