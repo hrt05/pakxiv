@@ -34,3 +34,24 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 起動手順
+
+###パッケージのインストール
+`npm i`
+
+###envの設定
+
+`NEXTAUTH_URL = http://localhost:3000`
+`NEXTAUTH_SECRET = `
+`NEXTAUTH_JWT_SECRET = `
+`DATABASE_URL=`
+
+###prismaのマイグレート
+`npx prisma migrate dev`
+
+###prismaの生成
+`prisma genetate`
+
+###起動
+`npm run dev`
