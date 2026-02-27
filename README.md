@@ -7,25 +7,29 @@
 
 ## 仕様技術
 
-React, Next.js, TypeScript, NextAuth, charcoal(UIライブラリ)
+React, Next.js, TypeScript, NextAuth, charcoal(UIライブラリ), CSS Module
 
 ## 起動手順
 
-###パッケージのインストール
+### パッケージのインストール
+
 `npm i`
 
-###envの設定
+### envの設定
 
-`NEXTAUTH_URL = http://localhost:3000`
-`NEXTAUTH_SECRET = `
-`NEXTAUTH_JWT_SECRET = `
-`DATABASE_URL=`
+`NEXTAUTH_URL = http://localhost:3000`<br/>
+`NEXTAUTH_SECRET = `<br/>
+`NEXTAUTH_JWT_SECRET = `<br/>
+`DATABASE_URL=`<br/>
 
-###prismaのマイグレート
+### prismaのマイグレート
+
 `npx prisma migrate dev`
 
-###prismaの生成
+### prismaの生成
+
 `prisma genetate`
 
-###起動
+### 起動
+
 `npm run dev`
