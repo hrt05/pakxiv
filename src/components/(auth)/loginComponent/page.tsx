@@ -1,6 +1,7 @@
 'use client'
 
 import { Button, TextField } from "@charcoal-ui/react"
+import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
@@ -13,8 +14,13 @@ const LoginPageComponent = () => {
     const handleSubmitRegister = () => {
         router.push("/register")
     }
-    const handleSubmitLogin = () => {
-        
+    const handleSubmitLogin = async () => {
+        const result = await signIn("credentials", { email:mailAddress, password:password, redirect:false })
+        if (result?.ok)
+            router.push("/")
+        else {
+            console.log(result?.error ?? "ログインに失敗しました")
+        }
     }
 
     /** テキストフィールドの処理 */
