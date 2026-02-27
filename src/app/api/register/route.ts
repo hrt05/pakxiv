@@ -37,8 +37,9 @@ export const POST = async (req: Request, res : NextResponse) => {
         // 作成がうまくいったら201を返します。
         return NextResponse.json({ user }, { status: 201 })
 
-    } catch(e: any) {
+    } catch(e: unknown) {
         // 予期せぬエラーが起きた場合に500を返します。
-        return NextResponse.json({ message: e.message }, { status: 500 })
+        const message = e instanceof Error ? e.message : '予期しないエラーが発生しました';
+        return NextResponse.json({ message }, { status: 500 })
     }
 }

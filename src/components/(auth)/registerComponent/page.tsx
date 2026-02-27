@@ -21,8 +21,17 @@ const RegisterPageComponent = () => {
             })
 
             if (response.ok) {
-                signIn()
-                router.push("/")
+                // signIn関数は非同期じゃないとダメらしいのでasyncにし、引数がないと何のproviderでやるかが判定できないので引数を渡します。
+                // authorize関数に、emailとpasswordしか設定していないので、引数はこの二つ(/lib/options.ts)
+                const result = await signIn("credentials", {
+                    email: mailAddress, password: password, redirect: false,
+                })
+                if (result?.ok) {
+                    router.push("/")
+                } else {
+                    // ??はNull合体演算子
+                    console.log(result?.error ?? "ログインに失敗しました")
+                }
             } else {
                 alert('エラー')
             }

@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation"
 
 const TopPageComponent = () => {
 
-    const { data: session } = useSession()
+    const { data: session , status} = useSession()
+    console.log("status", status)
     console.log("クライアントセッション",session)
 
     const user = session?.user
