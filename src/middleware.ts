@@ -9,5 +9,6 @@ export default withAuth({
 
 export const config = {
     // 保護したいページ
-    matcher: ['/dashboard', '/profile'],
+    matcher: ['/post/:path*'],
+    // matcher: ['/dashboard'],
 }

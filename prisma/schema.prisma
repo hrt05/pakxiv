@@ -66,16 +66,18 @@ model VerificationToken {
   @@map("verification_tokens")
 }
 
-model post {
+model Post {
   id          String @id @default(cuid())
   title       String
   description String
-  image @map("postImage")
-  postImage PostImage @relation()
-
+  images      PostImage[]
 }
 
 model PostImage {
   id   String @id @default(cuid())
-  path Path[]
+  path String
+  postId String
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([postId])
 }

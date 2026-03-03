@@ -18,6 +18,9 @@ const TopPageComponent = () => {
         console.log("押下テスト")
         router.push("/login")
     }
+    const handleSubmitPost = () => {
+        router.push("post")
+    }
 
     console.log("user確認",user)
 
@@ -28,6 +31,7 @@ const TopPageComponent = () => {
             {user? 
             <div><h3>セッションテスト</h3><br /><p>{user.id}</p>
             </div> : null}
+            <Button variant="Primary" onClick={handleSubmitPost}>投稿</Button>
         </div>
     )
 }
