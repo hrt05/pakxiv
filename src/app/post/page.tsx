@@ -1,6 +1,6 @@
 import PostPageComponent from "@/components/postComponent/page"
 
-const postPage = () => {
+const PostPage = () => {
     return <PostPageComponent />
 }
-export default postPage
+export default PostPage
