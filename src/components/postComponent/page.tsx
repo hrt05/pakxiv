@@ -53,15 +53,19 @@ const PostPageComponent = () => {
             const paralleUploads3 = new Upload({
                 client: new S3Client({ region: "ap-northeast-1", credentials: creds, requestChecksumCalculation: "WHEN_REQUIRED" }),
                 params: { Bucket: "pakxiv", Key: file.name, Body: file, ContentType: file.type },
+                // もし失敗したらs3側も消す設定 falseだと削除 trueだと壊れてても残します。
                 leavePartsOnError: false,
             })
 
+            //.onがイベントが動いたときとかの動作？ progressが進捗
             paralleUploads3.on("httpUploadProgress", (progress) => {
-                console.log(progress)
+                console.log("progress確認", progress)
             })
 
             await paralleUploads3.done();
             await setIsLoading(false)
+
+            console.log(paralleUploads3)
         } catch(e) {
             console.log(e)
         }
@@ -71,7 +75,12 @@ const PostPageComponent = () => {
 
     const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
-    const fileUpload = () => {
+    const fileUpload = (e: React.MouseEvent) => {
+
+        //親のdropzoneが動いてしまうのでボタンが発火されたら取り消し
+        // e.stopPropagation()
+        // e.preventDefault()
+
         if (inputRef.current == null) return;
         inputRef.current.click();
     }
@@ -91,8 +100,8 @@ const PostPageComponent = () => {
             <div>
                 <div className={styles.dropArea} {...getRootProps()}>
                     <input {...getInputProps()}/>
-                    <p>ここにドロップ</p>
-                    <Button variant="Navigation" onClick={fileUpload}>または選択</Button>
+                    <p>ここにドロップ又はクリック</p>
+                    {/* <Button variant="Navigation" onClick={fileUpload}>または選択</Button> */}
                     <input type="file" className={styles.hiddenInput} accept=".png, .jpg, .jpeg, .webp" ref={inputRef} onChange={onFileInputChange}/>
                 </div>
             </div>}
