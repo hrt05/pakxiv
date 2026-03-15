@@ -3,18 +3,14 @@
 import { Button } from "@charcoal-ui/react"
 import { useSession } from "next-auth/react"
 import { redirect, useRouter } from "next/navigation"
-import React, { useCallback, useRef, useState } from "react"
+import { useCallback, useRef, useState } from "react"
 import { useDropzone } from "react-dropzone"
 import styles from "./styles.module.css"
 import { Credentials } from "aws-sdk"
 import { S3Client } from "@aws-sdk/client-s3"
 import { Upload } from "@aws-sdk/lib-storage"
-// import React from "react"
-// import { v4 as uuidv4 } from "uuid";
 
 const PostPageComponent = () => {
-
-    // const uniqueId = uuidv4()
 
     const router = useRouter()
     const inputRef = useRef<HTMLInputElement>(null);
@@ -77,22 +73,7 @@ const PostPageComponent = () => {
         console.log(file);
     }, []);
 
-    const { fileRejections, getRootProps, getInputProps } = useDropzone({ onDrop, accept: {'image/jpeg': [], 'image/png': [], 'image/webp': []}, maxSize: 50 * 1024 * 1024 })
-
-    // acceptのエラー処理
-    const fileRejectionItems = fileRejections.map(({ file, errors }) => (
-        <React.Fragment key={file.name}>
-            <div>
-                {errors.map((e) => ((
-                    <p key={e.code}>
-                        {e.code == "file-too-large" ? `${file.name}のサイズが大きすぎます。` : `${file.name}はpng,jpeg,jpg,webpではございません。`}
-                        {/* {file.name}
-                        {e.code} */}
-                    </p>
-                )))}
-            </div>
-        </React.Fragment>
-    ))
+    const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
     const fileUpload = (e: React.MouseEvent) => {
 
@@ -106,31 +87,25 @@ const PostPageComponent = () => {
 
     const onFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files == null) return;
-        console.log("確認",event.target.files[0])
+        console.log(event.target.files[0])
     }
 
     return(
-        <>
-            <div>ポストページです
-                <p>{session?.user.name}</p>
-                <Button variant="Primary" onClick={handleSubmitTop}>トップへ</Button>
-                <h2>testコード</h2>
-                {isLoading ? <div><h2>アップロード中</h2></div>:
-
-                <div>
-                    <div className={styles.dropArea} {...getRootProps()}>
-                        {/* クリックしたときの処理 */}
-                        <input {...getInputProps()} accept=".png, .jpg, .jpeg, .webp"/>
-                        <p>ここにドロップ又はクリック</p>
-
-                            {/* <Button variant="Navigation" onClick={fileUpload}>または選択</Button> */}
-                            
-                        <input type="file" className={styles.hiddenInput} accept=".png, .jpg, .jpeg, .webp" ref={inputRef} onChange={onFileInputChange}/>
-                    </div>
-                </div>}
-            </div>
-            {fileRejectionItems}
-        </>
+        <div>ポストページです
+            <p>{session?.user.name}</p>
+            <Button variant="Primary" onClick={handleSubmitTop}>トップへ</Button>
+            <h2>testコード</h2>
+            {isLoading ? <div><h2>アップロード中</h2></div>:
+            
+            <div>
+                <div className={styles.dropArea} {...getRootProps()}>
+                    <input {...getInputProps()}/>
+                    <p>ここにドロップ又はクリック</p>
+                    {/* <Button variant="Navigation" onClick={fileUpload}>または選択</Button> */}
+                    <input type="file" className={styles.hiddenInput} accept=".png, .jpg, .jpeg, .webp" ref={inputRef} onChange={onFileInputChange}/>
+                </div>
+            </div>}
+        </div>
     )
 }
 
