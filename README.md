@@ -28,7 +28,7 @@ React, Next.js, TypeScript, NextAuth, charcoal(UIライブラリ), CSS Module
 
 ### prismaの生成
 
-`prisma genetate`
+`npx prisma generate`
 
 ### 起動
 

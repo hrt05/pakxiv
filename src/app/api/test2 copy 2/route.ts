@@ -32,7 +32,7 @@ export const POST = async (req: NextRequest) => {
 
     for (let fai = 0; fai < formArray.length; fai++) {
         const uniqueId = uuidv4();
-        uuidArray.push({ path: uniqueId})
+        uuidArray.push(uniqueId)
         
         const file = formArray[fai]
 
