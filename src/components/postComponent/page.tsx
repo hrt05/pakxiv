@@ -76,7 +76,7 @@ const TestPage5Component = () => {
             <div>
                 {errors.map((e) => ((
                     <p key={e.code}>
-                        <p>{e.code}</p>
+                        {/* <p>{e.code}</p> */}
                         {e.code == "file-too-large" ? `${file.name}のサイズが大きすぎます。` : e.code == "file-invalid-type" ? `${file.name}はpng,jpeg,jpg,webpではございません。` : e.code == "too-many-files" ? `枚数が多いです。` : `不明なエラー`}
                     </p>
                 )))}
