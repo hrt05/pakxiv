@@ -1,8 +1,8 @@
 "use client"
 
-import { Button } from "@charcoal-ui/react";
-import { Data } from "aws-sdk/clients/firehose";
-import { useState } from "react";
+// import { Button } from "@charcoal-ui/react";
+// import { Data } from "aws-sdk/clients/firehose";
+// import { useState } from "react";
 
 const TestPage2 = () => {
 

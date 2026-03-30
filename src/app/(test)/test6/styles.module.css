@@ -4,5 +4,7 @@
 }
 
 .img1 {
-    max-width: 700px;
+    max-width: 500px;
+    max-height: 300px;
+    margin: 10px;
 }

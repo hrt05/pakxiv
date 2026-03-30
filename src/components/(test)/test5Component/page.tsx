@@ -6,7 +6,7 @@ import { redirect, useRouter } from "next/navigation"
 import React, { useCallback, useRef, useState } from "react"
 import { useDropzone } from "react-dropzone"
 import styles from "./styles.module.css"
-import { Credentials } from "aws-sdk"
+// import { Credentials } from "aws-sdk"
 import { S3Client } from "@aws-sdk/client-s3"
 import { Upload } from "@aws-sdk/lib-storage"
 import prisma from "@/lib/prisma"
@@ -28,9 +28,9 @@ const TestPage5Component = () => {
         router.push("/")
     }
 
-    const handleSubmitTest = () => {
-        console.log("テストボタンが押されました")
-    }
+    // const handleSubmitTest = () => {
+    //     console.log("テストボタンが押されました")
+    // }
     
     //middlewareで設定済み だったが動かなかったので戻します。 // 03/06 middlewareがnextAuthのアップデートで使えないとか？でコンポーネントで飛ぶようにしました。
     if (status === "unauthenticated")
@@ -42,7 +42,7 @@ const TestPage5Component = () => {
     const [uuidArray, setUuidArray] = useState([])
 
     const filesousin = async(formData: FormData) =>{
-        const response = await fetch("/api/test2", {
+        const response = await fetch("/api/tests/test2", {
             method: "POST",
             // headers: {
             //     'Content-Type': 'application/json'
@@ -66,7 +66,8 @@ const TestPage5Component = () => {
 
         if (postFetch?.ok) {
             const nakami = await postFetch.json();
-            console.log(nakami)
+            console.log("中身確認２",nakami)
+            await router.push("/")
         }
 
     }

@@ -11,15 +11,10 @@
   border-radius: 15px;
   margin-bottom: 20px;
 }
-
 .img{
   height: 240px;
 }
 
 .hiddenInput {
     display: none;
-}
-
-.atodekesu {
-  color: #00a381;
 }
