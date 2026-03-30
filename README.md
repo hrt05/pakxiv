@@ -22,6 +22,9 @@ React, Next.js, TypeScript, NextAuth, charcoal(UIライブラリ), CSS Module
 `NEXTAUTH_JWT_SECRET = `<br/>
 `DATABASE_URL=`<br/>
 
+### s3のバケットネーム変更してます（多少のリスクを防ぐために）
+`バケットネーム　→　s3の設定したバケットネームで。`
+
 ### prismaのマイグレート
 
 `npx prisma migrate dev`
