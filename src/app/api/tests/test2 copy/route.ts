@@ -44,7 +44,7 @@ export const POST = async (req: NextRequest) => {
         try {
                 const paralleUploads3 = new Upload({
                     client: new S3Client({ region: "ap-northeast-1", credentials: creds, requestChecksumCalculation: "WHEN_REQUIRED" }),
-                    params: { Bucket: "pakxiv", Key: uniqueId, Body: file, ContentType: file.type },
+                    params: { Bucket: "バケットネーム", Key: uniqueId, Body: file, ContentType: file.type },
                     // もし失敗したらs3側も消す設定 falseだと削除 trueだと壊れてても残します。
                     leavePartsOnError: false,
                 })
@@ -87,7 +87,7 @@ export const POST = async (req: NextRequest) => {
     // try {
     //     const paralleUploads3 = new Upload({
     //         client: new S3Client({ region: "ap-northeast-1", credentials: creds, requestChecksumCalculation: "WHEN_REQUIRED" }),
-    //         params: { Bucket: "pakxiv", Key: file.name, Body: file, ContentType: file.type },
+    //         params: { Bucket: "バケットネーム", Key: file.name, Body: file, ContentType: file.type },
     //         // もし失敗したらs3側も消す設定 falseだと削除 trueだと壊れてても残します。
     //         leavePartsOnError: false,
     //     })

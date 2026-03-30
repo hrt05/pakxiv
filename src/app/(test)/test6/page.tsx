@@ -47,7 +47,7 @@ const Test6 = () => {
                 <p>{item.title}</p>
                 <p>{item.description}</p>
                 {item.images.map((image: Image, index) => <p key={index}>{image.path}</p>)}
-                {item.images.map((image: Image, index) => <img className={styles.img1} key={index} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/${image.path}`}/>)}
+                {item.images.map((image: Image, index) => <img className={styles.img1} key={index} src={`https://バケットネーム.s3.ap-northeast-1.amazonaws.com/${image.path}`}/>)}
                 {/* {item.images.map((path, index) => <ul key={index}><li>{path}</li></ul>)} */}
             </div>) : null}
         </div>
