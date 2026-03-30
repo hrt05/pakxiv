@@ -1,8 +1,9 @@
 import Provider from "@/components/provider";
 import "./globals.css";
-import { CharcoalProvider } from "@charcoal-ui/react";
+// import { CharcoalProvider } from "@charcoal-ui/react";
 import '@charcoal-ui/react/dist/index.css'
 import '@charcoal-ui/react/dist/layered.css'
+import '@charcoal-ui/theme/unstable-css/_variables_light.css'
 
 export default function RootLayout({
   children,
@@ -11,13 +12,13 @@ export default function RootLayout({
 }>) {
   return (
     <Provider>
-      <CharcoalProvider>
+      {/* <CharcoalProvider> */}
         <html lang="ja">
           <body>
             {children}
           </body>
         </html>
-      </CharcoalProvider>
+      {/* </CharcoalProvider> */}
     </Provider>
   );
 }

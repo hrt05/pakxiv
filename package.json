@@ -26,6 +26,7 @@
     "uuid": "^13.0.0"
   },
   "devDependencies": {
+    "@charcoal-ui/theme": "^5.8.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
