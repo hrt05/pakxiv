@@ -9,18 +9,24 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1004.0",
+    "@aws-sdk/lib-storage": "^3.1004.0",
     "@charcoal-ui/react": "^5.2.0",
     "@next-auth/prisma-adapter": "^1.0.7",
     "@prisma/adapter-pg": "^7.4.0",
     "@prisma/client": "^7.4.0",
     "@types/bcrypt": "^6.0.0",
+    "aws-sdk": "^2.1693.0",
     "bcrypt": "^6.0.0",
     "next": "16.1.6",
     "next-auth": "^4.24.13",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-dropzone": "^15.0.0",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
+    "@charcoal-ui/theme": "^5.8.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

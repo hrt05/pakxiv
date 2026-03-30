@@ -1,0 +1,15 @@
+/* .postDiv {
+    align-items: center;
+} */
+
+.post {
+    margin: 0 auto;
+    width: 1500px;
+    border-bottom: solid 1px #eff3f4;
+}
+
+.image {
+    max-width: 500px;
+    max-height: 500px;
+    padding: 30px;
+}

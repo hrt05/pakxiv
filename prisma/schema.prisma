@@ -65,3 +65,20 @@ model VerificationToken {
   @@unique([identifier, token])
   @@map("verification_tokens")
 }
+
+model Post {
+  id          String @id @default(cuid())
+  title       String
+  description String
+  images      PostImage[]
+}
+
+model PostImage {
+  id   String @id @default(cuid())
+  path String
+  postId String
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([postId])
+
+}
