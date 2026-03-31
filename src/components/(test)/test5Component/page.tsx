@@ -22,6 +22,8 @@ const TestPage5Component = () => {
 
     const { data: session, status } = useSession()
 
+    
+
     console.log(status)
 
     const handleSubmitTop = () => {
@@ -58,10 +60,12 @@ const TestPage5Component = () => {
         } 
     }
 
+    const userId = session?.user.id
+
     const toukou = async () => {
-        const postFetch = await fetch("/api/post", {
+        const postFetch = await fetch("/api/test3", {
             method: "POST",
-            body: JSON.stringify({ title, description, uuidArray})
+            body: JSON.stringify({ title, description, uuidArray, userId})
         })
 
         if (postFetch?.ok) {
@@ -99,7 +103,7 @@ const TestPage5Component = () => {
         // try {
         //     const paralleUploads3 = new Upload({
         //         client: new S3Client({ region: "ap-northeast-1", credentials: creds, requestChecksumCalculation: "WHEN_REQUIRED" }),
-        //         params: { Bucket: "バケットネーム", Key: file.name, Body: file, ContentType: file.type },
+        //         params: { Bucket: "pakxiv", Key: file.name, Body: file, ContentType: file.type },
         //         // もし失敗したらs3側も消す設定 falseだと削除 trueだと壊れてても残します。
         //         leavePartsOnError: false,
         //     })

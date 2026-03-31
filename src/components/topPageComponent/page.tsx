@@ -12,7 +12,10 @@ const TopPageComponent = () => {
         id: string,
         title: string,
         description: string,
-        images: []
+        images: [],
+        user: {
+            name: string
+        }
     }
 
     type Image = {
@@ -67,9 +70,10 @@ const TopPageComponent = () => {
             <div className={styles.postDiv}>
                 {postArray.map((item) => <div key={item.id} className={styles.post}>
                     {/* <p>{item.id}</p> */}
+                    <p>{item.user.name}</p>
                     <p>{item.title}</p>
                     <p>{item.description}</p>
-                    {item.images.map((image: Image, index) => <img key={index} className={styles.image} src={`https://バケットネーム.s3.ap-northeast-1.amazonaws.com/${image.path}`} />)}
+                    {item.images.map((image: Image, index) => <img key={index} className={styles.image} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/${image.path}`} />)}
                 </div>)}
             </div>
 

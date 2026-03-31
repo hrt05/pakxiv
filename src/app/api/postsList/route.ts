@@ -5,7 +5,7 @@ export const GET = async () => {
     try {
         const result = await prisma.post.findMany(
             {
-                include: { images: true }
+                include: { images: true, user: true }
             }
         )
 
