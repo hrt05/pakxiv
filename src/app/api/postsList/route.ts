@@ -3,9 +3,15 @@ import { NextResponse } from "next/server"
 
 export const GET = async () => {
     try {
+        // const result = await prisma.post.findMany(
+        //     {
+        //         include: { images: true, user: true }
+        //     }
+        // )
+
         const result = await prisma.post.findMany(
             {
-                include: { images: true, user: true }
+                include: { images: true, user: {select: {name: true}}}
             }
         )
 
