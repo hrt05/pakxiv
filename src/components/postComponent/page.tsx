@@ -40,11 +40,13 @@ const TestPage5Component = () => {
             setIsLoading(false)
         } 
     }
+    
+    const userId : string | null | undefined = session?.user.id
 
     const toukou = async () => {
         const postFetch = await fetch("/api/post", {
             method: "POST",
-            body: JSON.stringify({ title, description, uuidArray})
+            body: JSON.stringify({ title, description, uuidArray, userId})
         })
 
         if (postFetch?.ok) {
