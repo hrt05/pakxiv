@@ -8,6 +8,7 @@ export const POST = async(req: NextRequest) => {
         console.log("title確認", title)
         console.log("description確認", description)
         console.log("uuid確認", uuidArray)
+        console.log("userId確認", userId)
         // const imageKakunin = image
 
         // return NextResponse.json(imageKakunin)
