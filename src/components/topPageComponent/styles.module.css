@@ -3,8 +3,9 @@
 } */
 
 .post {
-    margin: 0 auto;
-    width: 1500px;
+    margin: 0 200px;
+    background-color: #bbb;
+    /* width: 1500px; */
     border-bottom: solid 1px #eff3f4;
 }
 
@@ -13,3 +14,15 @@
     max-height: 500px;
     padding: 30px;
 }
+
+/* .image {
+    border-radius: 50%;
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    padding: 30px;
+} */
+/* 
+.centerImg {
+    text-align: center;
+} */

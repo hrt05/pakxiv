@@ -73,7 +73,7 @@ const TopPageComponent = () => {
                     <p>{item.user.name}</p>
                     <p>{item.title}</p>
                     <p>{item.description}</p>
-                    {item.images.map((image: Image, index) => <img key={index} className={styles.image} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/${image.path}`} />)}
+                    <div className={styles.centerImg}>{item.images.map((image: Image, index) => <img key={index} className={styles.image} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/${image.path}`} />)}</div>
                 </div>)}
             </div>
 
