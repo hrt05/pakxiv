@@ -1,6 +1,10 @@
-/* .postDiv {
-    align-items: center;
-} */
+.icon {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    padding: 30px;
+}
 
 .post {
     margin: 0 200px;
@@ -15,15 +19,3 @@
     max-height: 500px;
     padding: 30px;
 }
-
-/* .image {
-    border-radius: 50%;
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
-    padding: 30px;
-} */
-/* 
-.centerImg {
-    text-align: center;
-} */
