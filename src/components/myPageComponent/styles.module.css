@@ -5,3 +5,17 @@
     object-fit: cover;
     padding: 30px;
 }
+
+.post {
+    margin: 0 200px;
+    background-color: #eff3f4;
+    /* width: 1500px; */
+    /* border-bottom: solid 1px #eff3f4; */
+    border-bottom: solid 1px #eee;
+}
+
+.image {
+    max-width: 500px;
+    max-height: 500px;
+    padding: 30px;
+}
