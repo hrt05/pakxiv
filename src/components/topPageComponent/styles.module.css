@@ -4,9 +4,10 @@
 
 .post {
     margin: 0 200px;
-    background-color: #bbb;
+    background-color: #eff3f4;
     /* width: 1500px; */
-    border-bottom: solid 1px #eff3f4;
+    /* border-bottom: solid 1px #eff3f4; */
+    border-bottom: solid 1px #eee;
 }
 
 .image {
