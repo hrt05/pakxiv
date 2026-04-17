@@ -1,5 +1,5 @@
 import Header from "@/components/header/page"
-import MyPageComponent from "@/components/myPageComponent/page"
+import MyPageComponent from "@/components/(myPage)/myPageComponent/page"
 import options from "@/lib/options"
 import { getServerSession } from "next-auth"
 
