@@ -14,3 +14,20 @@
     width: 420;
     height: 700;
 }
+
+.icon {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.icon:hover {
+    filter: brightness(0.9);
+}
+
+.iconDiv {
+    margin: 30px;
+    text-align: center;
+    /* background: #58f543; */
+}

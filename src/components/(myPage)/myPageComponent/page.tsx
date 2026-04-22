@@ -62,7 +62,7 @@ const MyPageComponent = async ({ serverSession }: ServerSessionProps) => {
                 <p>{user?.name ?? 'omae dare'}</p>
             </div>
             <div>
-                <EditProfileComponent/>
+                <EditProfileComponent imageProps={user?.image}/>
             </div>
             <div>
                 <h2>自分の投稿</h2>

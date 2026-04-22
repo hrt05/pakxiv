@@ -4,7 +4,13 @@ import { Button } from "@charcoal-ui/react"
 import { useState } from "react"
 import styles from "./styles.module.css"
 
-const EditProfileComponent = () => {
+type Props = {
+    imageProps: string | null | undefined
+}
+
+const EditProfileComponent = ({imageProps}: Props) => {
+    const image = imageProps
+
     const [modal, setModal] = useState(false)
 
     const hundleModalClick = () => {
@@ -17,7 +23,7 @@ const EditProfileComponent = () => {
             {modal ? 
             <div role="dialog" aria-modal="true" className={styles.modal} onClick={() => setModal(false)}>
                 <div className={styles.modalIn} onClick={(e) => e.stopPropagation()}>
-
+                {image !== '' ? <div className={styles.iconDiv}><img className={styles.icon} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/${image}`}/></div> : <div className={styles.iconDiv}><img className={styles.icon} src="https://pakxiv.s3.ap-northeast-1.amazonaws.com/nullIcon/%E3%81%A8%E3%81%91%E3%81%A1%E3%82%83%E3%81%86%E7%8C%AB%E3%81%95%E3%82%93.jpg"/></div>}
                 </div>
             </div> : 
             <p>falseだよ</p>
