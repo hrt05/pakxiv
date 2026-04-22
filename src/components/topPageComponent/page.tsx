@@ -59,8 +59,8 @@ const TopPageComponent = () => {
     console.log("user確認",user)
 
     return(
-        <div>
-            <p>テスト</p>
+        <div className={styles.background}>
+            <p>テスト -body -</p>
             <Button variant="Primary" onClick={handleSubmitLogin}>ログイン</Button>
             {user? 
             <div><h3>セッションテスト</h3><br /><p>{user.id}</p>

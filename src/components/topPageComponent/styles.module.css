@@ -16,6 +16,10 @@
     padding: 30px;
 }
 
+.background {
+    background-color: #f2faffee;
+}
+
 /* .image {
     border-radius: 50%;
     width: 500px;
