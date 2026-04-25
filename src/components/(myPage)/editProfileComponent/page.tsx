@@ -15,7 +15,10 @@ const EditProfileComponent = ({imageProps}: Props) => {
 
     // refの使い方わからなくてaiに聞きました。
     const inputRef = useRef<HTMLInputElement>(null)
-    const openInputRef = () => inputRef.current?.click()
+    const handleClickRef = () => {
+        inputRef.current?.click();
+        console.log("アイコン変更したい。。。！！１")
+    }
 
     const hundleModalClick = () => {
         setModal(true)
@@ -27,8 +30,11 @@ const EditProfileComponent = ({imageProps}: Props) => {
             {modal ? 
             <div role="dialog" aria-modal="true" className={styles.modal} onClick={() => setModal(false)}>
                 <div className={styles.modalIn} onClick={(e) => e.stopPropagation()}>
-                    <input type="file" ref={inputRef}/>
-                {image !== '' ? <div className={styles.iconDiv}><img className={styles.icon} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/${image}`}/></div> : <div className={styles.iconDiv}><img className={styles.icon} src="https://pakxiv.s3.ap-northeast-1.amazonaws.com/nullIcon/%E3%81%A8%E3%81%91%E3%81%A1%E3%82%83%E3%81%86%E7%8C%AB%E3%81%95%E3%82%93.jpg"/></div>}
+                {image !== '' ? <div className={styles.iconDiv}><img className={styles.icon} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/${image}`}/></div> : <div className={styles.iconDiv}><img onClick={handleClickRef} className={styles.icon} src="https://pakxiv.s3.ap-northeast-1.amazonaws.com/nullIcon/%E3%81%A8%E3%81%91%E3%81%A1%E3%82%83%E3%81%86%E7%8C%AB%E3%81%95%E3%82%93.jpg"/></div>}
+                    <input hidden type="file" ref={inputRef}/>
+                </div>
+                <div>
+                    
                 </div>
             </div> : 
             <p>falseだよ</p>
