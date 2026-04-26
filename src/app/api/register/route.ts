@@ -23,13 +23,16 @@ export const POST = async (req: Request, res : NextResponse) => {
         // bcryptを使ってpasswordを12文字のハッシュパスワードにします。
         const hashedpassword = await bcrypt.hash(password, 12)
 
-        /** いったんimagesは空にしておきます。 */
+        /** いったんimagesは空にしておきます。 
+         * descriptionも
+        */
         const user = await prisma.user.create({
             data: {
                 email,
                 hashedpassword,
                 name,
                 image: '',
+                description: '',
                 emailVerified: new Date(),
             }
         })

@@ -4,12 +4,23 @@ declare module "next-auth" {
     interface Session {
         user: {
             id?: string | null
+            description: string
         } & DefaultSession["user"]
+    }
+    interface User {
+        description: string
     }
 }
 
 declare module "next-auth/jwt" {
     interface JWT {
-        id?: string | null
+        id: string
+        description: string
     }
 }
+
+// declare module "next-auth/adapters" {
+//     interface AdapterUser {
+//         description?: string | null
+//     }
+// }
