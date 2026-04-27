@@ -3,6 +3,8 @@
 import { Button, TextArea, TextField } from "@charcoal-ui/react"
 import { useRef, useState } from "react"
 import styles from "./styles.module.css"
+import { useSession } from "next-auth/react"
+// import { useSession } from "next-auth/react"
 
 // type Props = {
 //     imageProps: string | null | undefined
@@ -30,6 +32,9 @@ const EditProfileComponent = ({userProps}: Props) => {
 
     const user = userProps
 
+    const { update } = useSession()
+    // const clientUserId = session?.user.id
+
     console.log(user)
 
     const name = user?.name
@@ -43,6 +48,7 @@ const EditProfileComponent = ({userProps}: Props) => {
      */
     const [userName, setUserName] = useState(`${name}`)
     const [userDescription, setUserDescription] = useState(`${description}`)
+    const [userImage, setUserImage] = useState(`${image}`)
 
     // refの使い方わからなくてaiに聞きました。
     const inputRef = useRef<HTMLInputElement>(null)
@@ -53,6 +59,22 @@ const EditProfileComponent = ({userProps}: Props) => {
 
     const hundleModalClick = () => {
         setModal(true)
+    }
+
+    const hundleUpdateClick = async () => {
+        console.log("あれえええええ？？？？＊",{ userName, userDescription, userImage })
+        const apiFetch = await fetch("/api/profileEdit", {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ userName, userDescription, userImage })
+        })
+
+        if (apiFetch.ok) {
+            update();
+            window.location.reload();
+        }
     }
 
     return (
@@ -74,7 +96,7 @@ const EditProfileComponent = ({userProps}: Props) => {
 
                     <div className={styles.buttons}>
                         <div>
-                            <Button variant="Danger" className={styles.button}>更新</Button>
+                            <Button variant="Danger" className={styles.button} onClick={hundleUpdateClick}>更新</Button>
                         </div>
                         <div>
                             <Button className={styles.button}>閉じる</Button>

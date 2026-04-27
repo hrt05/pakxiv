@@ -4,7 +4,7 @@ import { Button } from "@charcoal-ui/react"
 
 const TestButtonComponent = () => {
     const hunndleClick = async () => {
-        const response = await fetch("/api/test", {method: "POST"})
+        const response = await fetch("/api/profileEdit", {method: "PATCH"})
 
         if (response.ok) {
             console.log("てええすと" ,response)
