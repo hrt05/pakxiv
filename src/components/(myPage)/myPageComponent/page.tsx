@@ -2,7 +2,7 @@ import { Session } from "next-auth"
 import styles from "./styles.module.css"
 import { headers } from "next/headers"
 import prisma from "@/lib/prisma"
-import MyPageImageComponent from "../myPageImageComponent/page"
+// import MyPageImageComponent from "../myPageImageComponent/page"
 import EditProfileComponent from "../editProfileComponent/page"
 
 type ServerSessionProps = {
