@@ -2,7 +2,8 @@ import { Session } from "next-auth"
 import styles from "./styles.module.css"
 import { headers } from "next/headers"
 import prisma from "@/lib/prisma"
-import MyPageImageComponent from "../myPageImageComponent/page"
+// import MyPageImageComponent from "../myPageImageComponent/page"
+import EditProfileComponent from "../editProfileComponent/page"
 
 type ServerSessionProps = {
     serverSession: Session | null
@@ -56,9 +57,13 @@ const MyPageComponent = async ({ serverSession }: ServerSessionProps) => {
             <div>
                 <p>{user?.email}</p>
                 <p>{user?.id}</p>
-                {/* {user?.image !== '' ? <img className={styles.icon} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/${user?.image}`}/> : <img className={styles.icon} src="https://pakxiv.s3.ap-northeast-1.amazonaws.com/nullIcon/%E3%81%A8%E3%81%91%E3%81%A1%E3%82%83%E3%81%86%E7%8C%AB%E3%81%95%E3%82%93.jpg"/>} */}
-                <MyPageImageComponent imageProps={user?.image}/>
+                {user?.image !== '' ? <img className={styles.icon} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/${user?.image}`}/> : <img className={styles.icon} src="https://pakxiv.s3.ap-northeast-1.amazonaws.com/nullIcon/%E3%81%A8%E3%81%91%E3%81%A1%E3%82%83%E3%81%86%E7%8C%AB%E3%81%95%E3%82%93.jpg"/>}
+                {/* <MyPageImageComponent imageProps={user?.image}/> */}
                 <p>{user?.name ?? 'omae dare'}</p>
+            </div>
+            <div>
+                <EditProfileComponent userProps={user}/>
+                {/* <EditProfileComponent imageProps={user?.image}/> */}
             </div>
             <div>
                 <h2>自分の投稿</h2>
