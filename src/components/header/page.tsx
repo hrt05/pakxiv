@@ -10,8 +10,8 @@ const Header = async () => {
     // const router = useRouter()
 
     return (
-        <div>
-            <p>ロゴ</p>
+        <div className={styles.background}>
+            <p>ロゴ - header -</p>
             {session ?
                 <Link href={"/myPage"}>
                     {session?.user.image !== '' ? <img className={styles.icon} alt="アイコンが設定されているときの画像" src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/${session?.user.image}`} /> : <img className={styles.icon} src="https://pakxiv.s3.ap-northeast-1.amazonaws.com/nullIcon/%E3%81%A8%E3%81%91%E3%81%A1%E3%82%83%E3%81%86%E7%8C%AB%E3%81%95%E3%82%93.jpg" />}

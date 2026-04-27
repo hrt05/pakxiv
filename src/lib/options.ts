@@ -39,6 +39,7 @@ const options: NextAuthOptions = {
                 const user = await prisma.user.findUnique({
                     where: { email: credentials.email }
                 })
+                console.log("めっちゃ重要なところ",user)
 
                 // 存在していた場合
                 if (!user || !user.hashedpassword) {
@@ -76,6 +77,13 @@ const options: NextAuthOptions = {
                 // JWTトークンにid追加して保存する
                 // user.idから取り出し、token.idに追加
                 token.id = user.id
+                
+                var description = user.description
+
+                if (description == null || undefined) {
+                    description = ''
+                }
+                token.description = description
             }
             return token
         },
@@ -89,6 +97,7 @@ const options: NextAuthOptions = {
                 // tokenに保存してあったidをsessionに追加する。　上記でidが含まれているtokeをいれないといけない。
                 // これをしないとフロント側でsession.user.idが撮れない
                 session.user.id = token.id
+                session.user.description = token.description
             }
 
             // sessionを返すことでuseSession()の呼び出し元に渡される。 (useSession()を実行したらidの含まれているsessionが返されるような形。)

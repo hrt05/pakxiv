@@ -5,3 +5,7 @@
     object-fit: cover;
     /* padding: 30px; */
 }
+
+.background {
+    background-color: #f6fff2ee;
+}
