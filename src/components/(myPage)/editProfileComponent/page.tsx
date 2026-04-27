@@ -3,7 +3,7 @@
 import { Button, TextArea, TextField } from "@charcoal-ui/react"
 import { useRef, useState } from "react"
 import styles from "./styles.module.css"
-import { useSession } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 // import { useSession } from "next-auth/react"
 
 // type Props = {
@@ -32,7 +32,7 @@ const EditProfileComponent = ({userProps}: Props) => {
 
     const user = userProps
 
-    const { update } = useSession()
+    // const { update } = useSession()
     // const clientUserId = session?.user.id
 
     console.log(user)
@@ -72,7 +72,7 @@ const EditProfileComponent = ({userProps}: Props) => {
         })
 
         if (apiFetch.ok) {
-            update();
+            signOut();
             window.location.reload();
         }
     }
