@@ -1,6 +1,8 @@
 import { Session } from "next-auth"
 import styles from "./styles.module.css"
 import prisma from "@/lib/prisma"
+import EditProfileComponent from "../editProfileComponent/page"
+import { redirect } from "next/navigation"
 
 type ServerSessionProps = {
     serverSession: Session | null
@@ -13,9 +15,14 @@ type Image = {
 }
 
 const MyPageComponent = async ({ serverSession }: ServerSessionProps) => {
+
+    if (!serverSession) {
+        redirect("/")
+    }
+
     console.log("サーバー側からのプロップス", serverSession)
-    const ServerSessionUser = await serverSession?.user
-    const ServerSessionUserId = ServerSessionUser?.id
+    const ServerSessionUser = await serverSession.user
+    const ServerSessionUserId = ServerSessionUser.id
 
     const userData = await prisma.user.findUnique({
         where: {
@@ -44,10 +51,12 @@ const MyPageComponent = async ({ serverSession }: ServerSessionProps) => {
         <div>
             <h1>これはマイページです。</h1>
             <div>
-                {/* <p>{userData.email}</p> */}
                 <p>{userData?.id}</p>
                 {userData?.image !== '' ? <img className={styles.icon} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/${userData?.image}`}/> : <img className={styles.icon} src="https://pakxiv.s3.ap-northeast-1.amazonaws.com/nullIcon/%E3%81%A8%E3%81%91%E3%81%A1%E3%82%83%E3%81%86%E7%8C%AB%E3%81%95%E3%82%93.jpg"/>}
                 <p>{userData?.name ?? 'omae dare'}</p>
+            </div>
+            <div>
+                {userData ? <EditProfileComponent {...userData}/> : null}
             </div>
             <div>
                 <h2>自分の投稿</h2>

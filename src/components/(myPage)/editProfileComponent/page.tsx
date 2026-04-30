@@ -3,32 +3,16 @@
 import { Button, TextArea, TextField } from "@charcoal-ui/react"
 import { useRef, useState } from "react"
 import styles from "./styles.module.css"
-import { signOut, useSession } from "next-auth/react"
-// import { useSession } from "next-auth/react"
-
-// type Props = {
-//     imageProps: string | null | undefined
-// }
-// type Props = {
-//     name: string
-//     email: string
-//     image: string
-//     id: string
-// }
 
 type Props = {
-    userProps: ({
-        id?: string | null;
-        description: string;
-    } & {
-        name?: string | null;
-        email?: string | null;
-        image?: string | null;
-    }) | undefined
+    id: string;
+    name: string | null;
+    description: string;
+    image: string | null;
 }
 
 // const EditProfileComponent = ({imageProps}: Props) => {
-const EditProfileComponent = ({userProps}: Props) => {
+const EditProfileComponent = (userProps: Props) => {
 
     const user = userProps
 
@@ -72,7 +56,6 @@ const EditProfileComponent = ({userProps}: Props) => {
         })
 
         if (apiFetch.ok) {
-            signOut();
             window.location.reload();
         }
     }
