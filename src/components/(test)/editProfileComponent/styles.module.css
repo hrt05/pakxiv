@@ -1,0 +1,52 @@
+.modal {
+    position: fixed;
+    inset: 0;
+    background: #00000040;
+    display: grid;
+    place-items: center;
+    z-index: 50;
+}
+
+.modalIn {
+    background: #fff;
+    padding: 16;
+    border-radius: 8;
+    width: 420;
+    height: 700;
+}
+
+.icon {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.icon:hover {
+    filter: brightness(0.9);
+}
+
+.iconDiv {
+    margin: 30px;
+    text-align: center;
+    /* background: #58f543; */
+}
+
+.name {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.nameField {
+    margin: 20px 0;
+}
+
+.button {
+    width: 300px;
+    margin: 10px 0;
+}
+
+.buttons {
+    text-align: center;
+    margin: 100px 0
+}
