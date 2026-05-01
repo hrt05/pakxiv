@@ -3,6 +3,7 @@ import styles from "./styles.module.css"
 import prisma from "@/lib/prisma"
 import EditProfileComponent from "../editProfileComponent/page"
 import { redirect } from "next/navigation"
+import { userDataHooks } from "@/hooks/user"
 
 type ServerSessionProps = {
     serverSession: Session | null
@@ -24,17 +25,19 @@ const MyPageComponent = async ({ serverSession }: ServerSessionProps) => {
     const ServerSessionUser = await serverSession.user
     const ServerSessionUserId = ServerSessionUser.id
 
-    const userData = await prisma.user.findUnique({
-        where: {
-            id: ServerSessionUserId
-        },
-        select: {
-            id: true,
-            name: true,
-            description: true,
-            image: true
-        }
-    })
+    // const userData = await prisma.user.findUnique({
+    //     where: {
+    //         id: ServerSessionUserId
+    //     },
+    //     select: {
+    //         id: true,
+    //         name: true,
+    //         description: true,
+    //         image: true
+    //     }
+    // })
+
+    const userData = await userDataHooks(ServerSessionUserId)
 
     console.log("ユーザーDB", userData)
 
