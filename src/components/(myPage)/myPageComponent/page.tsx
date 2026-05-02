@@ -3,7 +3,8 @@ import styles from "./styles.module.css"
 import prisma from "@/lib/prisma"
 import EditProfileComponent from "../editProfileComponent/page"
 import { redirect } from "next/navigation"
-import { userDataHooks } from "@/utils/user"
+import { userDataDef } from "@/utils/user"
+import { userPostDef } from "@/utils/posts"
 
 type ServerSessionProps = {
     serverSession: Session | null
@@ -37,16 +38,21 @@ const MyPageComponent = async ({ serverSession }: ServerSessionProps) => {
     //     }
     // })
 
-    const userData = await userDataHooks(ServerSessionUserId)
+    const userData = await userDataDef(ServerSessionUserId)
 
     console.log("ユーザーDB", userData)
 
-    const userPost = await prisma.post.findMany({
-        where: {userId: ServerSessionUserId},
-        include: {
-            images: true, user: {select: {name: true}}
-        }
-    })
+    // const userPost = await prisma.post.findMany({
+    //     orderBy: {
+    //         createdAt: "desc"
+    //     },
+    //     where: {userId: ServerSessionUserId},
+    //     include: {
+    //         images: true, user: {select: {name: true}}
+    //     }
+    // })
+
+    const userPost = await userPostDef(ServerSessionUserId)
 
     console.log("これどうですか？",userPost)
 
@@ -68,7 +74,7 @@ const MyPageComponent = async ({ serverSession }: ServerSessionProps) => {
                     <p>{item.user.name}</p>
                     <p>{item.title}</p>
                     <p>{item.description}</p>
-                    <div>{item.images.map((image: Image, index) => <img key={index} className={styles.image} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/${image.path}`} />)}</div>
+                    <div>{item.images.map((image: Image, index) => <img key={index} className={styles.image} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/post/${image.path}`} />)}</div>
                 </div>)}
                 </div>
             </div>

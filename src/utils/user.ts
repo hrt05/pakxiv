@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma"
 
-export const userDataHooks = async (userId: string) => {
-    const userDataHooksDef = await prisma.user.findUnique({
+export const userDataDef = async (userId: string) => {
+    const userData = await prisma.user.findUnique({
         where: {
             id: userId
         },
@@ -13,5 +13,5 @@ export const userDataHooks = async (userId: string) => {
         }
     })
 
-    return userDataHooksDef
+    return userData
 }

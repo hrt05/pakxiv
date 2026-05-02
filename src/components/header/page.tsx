@@ -2,7 +2,7 @@ import options from "@/lib/options"
 import { getServerSession } from "next-auth"
 import styles from "./styles.module.css"
 import Link from "next/link"
-import { userDataHooks } from "@/utils/user"
+import { userDataDef } from "@/utils/user"
 
 const Header = async () => {
     const session = await getServerSession(options)
@@ -12,7 +12,7 @@ const Header = async () => {
     //     return
     // }
 
-    const user = session?.user.id != null ? await userDataHooks(session.user.id) : null;
+    const user = session?.user.id != null ? await userDataDef(session.user.id) : null;
 
     // if (!user) {
     //     return
