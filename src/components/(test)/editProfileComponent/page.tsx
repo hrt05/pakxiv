@@ -3,16 +3,32 @@
 import { Button, TextArea, TextField } from "@charcoal-ui/react"
 import { useRef, useState } from "react"
 import styles from "./styles.module.css"
+import { signOut, useSession } from "next-auth/react"
+// import { useSession } from "next-auth/react"
+
+// type Props = {
+//     imageProps: string | null | undefined
+// }
+// type Props = {
+//     name: string
+//     email: string
+//     image: string
+//     id: string
+// }
 
 type Props = {
-    id: string;
-    name: string | null;
-    description: string;
-    image: string | null;
+    userProps: ({
+        id?: string | null;
+        description: string;
+    } & {
+        name?: string | null;
+        email?: string | null;
+        image?: string | null;
+    }) | undefined
 }
 
 // const EditProfileComponent = ({imageProps}: Props) => {
-const EditProfileComponent = (userProps: Props) => {
+const EditProfileComponent = ({userProps}: Props) => {
 
     const user = userProps
 
@@ -56,34 +72,9 @@ const EditProfileComponent = (userProps: Props) => {
         })
 
         if (apiFetch.ok) {
+            signOut();
             window.location.reload();
         }
-    }
-
-    const s3uploadProfile = async(event: React.ChangeEvent<HTMLInputElement>) => {
-        if (!event.target.files) {
-            // return(alert("何も設定されていません。"))
-            return
-        }
-        const file = await event.target.files[0]
-        const formData = new FormData();
-
-        await formData.append("files", file)
-
-        if (file.size > 50 * 1024 * 1024) {
-            return alert("ファイルサイズが大きすぎます。")
-        }
-
-        const response = await fetch("/api/s3upload/profile", {
-            method: "POST",
-            body: formData
-        })
-
-        if (response?.ok) {
-            const uuid = await response.json();
-            setUserImage(uuid)
-            console.log(uuid)
-        } 
     }
 
     return (
@@ -92,10 +83,10 @@ const EditProfileComponent = (userProps: Props) => {
             {modal ? 
             <div role="dialog" aria-modal="true" className={styles.modal} onClick={() => setModal(false)}>
                 <div className={styles.modalIn} onClick={(e) => e.stopPropagation()}>
-                    {image !== '' ? <div className={styles.iconDiv}><img onClick={handleClickRef} className={styles.icon} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/profile/${image}`}/></div> : <div className={styles.iconDiv}><img onClick={handleClickRef} className={styles.icon} src="https://pakxiv.s3.ap-northeast-1.amazonaws.com/nullIcon/%E3%81%A8%E3%81%91%E3%81%A1%E3%82%83%E3%81%86%E7%8C%AB%E3%81%95%E3%82%93.jpg"/></div>}
-                        <input hidden type="file" ref={inputRef} onChange={s3uploadProfile} accept="image/jpeg, image/png, image/webp"/>
+                    {image !== '' ? <div className={styles.iconDiv}><img className={styles.icon} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/${image}`}/></div> : <div className={styles.iconDiv}><img onClick={handleClickRef} className={styles.icon} src="https://pakxiv.s3.ap-northeast-1.amazonaws.com/nullIcon/%E3%81%A8%E3%81%91%E3%81%A1%E3%82%83%E3%81%86%E7%8C%AB%E3%81%95%E3%82%93.jpg"/></div>}
+                        <input hidden type="file" ref={inputRef}/>
                     <div className={styles.name}>
-                        <p className={styles.ptagName}>{userName}</p>
+                        <p className={styles.ptagName}>名前</p>
                         <TextField className={styles.nameField} type="text" value={userName} onChange={(value) => setUserName(value)} />
                     </div>
 
