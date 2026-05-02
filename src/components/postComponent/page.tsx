@@ -28,7 +28,7 @@ const TestPage5Component = () => {
     const [uuidArray, setUuidArray] = useState([])
 
     const filesousin = async(formData: FormData) =>{
-        const response = await fetch("/api/s3save", {
+        const response = await fetch("/api/s3upload/post", {
             method: "POST",
             body: formData
         })

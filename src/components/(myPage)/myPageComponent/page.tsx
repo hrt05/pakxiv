@@ -3,7 +3,7 @@ import styles from "./styles.module.css"
 import prisma from "@/lib/prisma"
 import EditProfileComponent from "../editProfileComponent/page"
 import { redirect } from "next/navigation"
-import { userDataHooks } from "@/hooks/user"
+import { userDataHooks } from "@/utils/user"
 
 type ServerSessionProps = {
     serverSession: Session | null
@@ -55,7 +55,7 @@ const MyPageComponent = async ({ serverSession }: ServerSessionProps) => {
             <h1>これはマイページです。</h1>
             <div>
                 <p>{userData?.id}</p>
-                {userData?.image !== '' ? <img className={styles.icon} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/${userData?.image}`}/> : <img className={styles.icon} src="https://pakxiv.s3.ap-northeast-1.amazonaws.com/nullIcon/%E3%81%A8%E3%81%91%E3%81%A1%E3%82%83%E3%81%86%E7%8C%AB%E3%81%95%E3%82%93.jpg"/>}
+                {userData?.image !== '' ? <img className={styles.icon} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/profile/${userData?.image}`}/> : <img className={styles.icon} src="https://pakxiv.s3.ap-northeast-1.amazonaws.com/nullIcon/%E3%81%A8%E3%81%91%E3%81%A1%E3%82%83%E3%81%86%E7%8C%AB%E3%81%95%E3%82%93.jpg"/>}
                 <p>{userData?.name ?? 'omae dare'}</p>
             </div>
             <div>
