@@ -95,7 +95,7 @@ const EditProfileComponent = (userProps: Props) => {
                     {image !== '' ? <div className={styles.iconDiv}><img onClick={handleClickRef} className={styles.icon} src={`https://pakxiv.s3.ap-northeast-1.amazonaws.com/profile/${image}`}/></div> : <div className={styles.iconDiv}><img onClick={handleClickRef} className={styles.icon} src="https://pakxiv.s3.ap-northeast-1.amazonaws.com/nullIcon/%E3%81%A8%E3%81%91%E3%81%A1%E3%82%83%E3%81%86%E7%8C%AB%E3%81%95%E3%82%93.jpg"/></div>}
                         <input hidden type="file" ref={inputRef} onChange={s3uploadProfile} accept="image/jpeg, image/png, image/webp"/>
                     <div className={styles.name}>
-                        <p className={styles.ptagName}>名前</p>
+                        <p className={styles.ptagName}>{userName}</p>
                         <TextField className={styles.nameField} type="text" value={userName} onChange={(value) => setUserName(value)} />
                     </div>
 
